@@ -6,7 +6,7 @@ desc: |
 
   修复 qq_official（QQ 官方机器人）等平台上空 @ 无响应的问题。
 help: '安装后自动生效，无需指令。行为均可在插件配置里调整：占位文本、兜底称呼、等待窗口开关与时长（1-600 秒）。'
-version: v1.0.0
+version: v1.0.1
 author: "fengxue"
 repo: https://github.com/fxzh/astrbot_plugin_empty_at_reply
 social_link: https://github.com/fxzh
