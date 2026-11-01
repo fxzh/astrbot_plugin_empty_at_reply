@@ -1,5 +1,5 @@
 name: astrbot_plugin_empty_at_reply
-display_name: 空@响应
+display_name: QQ官方机器人空@响应
 short_desc: 单独 @ 机器人（不带内容）时也正常回复，修复 qq_official 等平台空 @ 无响应
 desc: |
   单独 @ 机器人（不带任何内容）时让机器人也正常回复。
