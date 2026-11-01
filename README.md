@@ -1,4 +1,4 @@
-# 空@响应（astrbot_plugin_empty_at_reply）
+# QQ官方机器人空@响应（astrbot_plugin_empty_at_reply）
 
 单独 @ 机器人（不带任何内容）时，让机器人也正常回复。
 
