@@ -1,0 +1,32 @@
+{
+  "enabled": {
+    "description": "总开关：启用后，单独 @ 机器人（不带任何内容）时机器人也会回复",
+    "type": "bool",
+    "default": true,
+    "hint": ""
+  },
+  "placeholder_text": {
+    "description": "空 @ 时交给模型的占位文本",
+    "type": "string",
+    "default": "",
+    "hint": "留空则自动使用「@机器人昵称」。模型收到的这条用户消息就是该文本（若装有发言人标注类插件还会带上昵称前缀），会像普通消息一样带完整上下文回复"
+  },
+  "bot_fallback_name": {
+    "description": "拿不到机器人昵称时使用的兜底称呼",
+    "type": "string",
+    "default": "bot",
+    "hint": "用于自动占位文本「@称呼」"
+  },
+  "wait_followup": {
+    "description": "回复后开启等待窗口：触发空 @ 的那位用户在窗口内的下一条消息作为正式内容继续对话（无需再 @）",
+    "type": "bool",
+    "default": true,
+    "hint": "按发送者限定，同群其他人的消息不会被抓走"
+  },
+  "wait_seconds": {
+    "description": "等待窗口时长（秒）",
+    "type": "int",
+    "default": 60,
+    "hint": "范围 1-600"
+  }
+}
