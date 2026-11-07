@@ -65,7 +65,7 @@ if SessionFilter is not None:
     "astrbot_plugin_empty_at_reply",
     "fengxue",
     "单独 @ 机器人（不带任何内容）时也正常回复，修复 qq_official 等平台空 @ 无响应",
-    "1.0.0",
+    "1.0.2",
 )
 class EmptyAtReply(Star):
     def __init__(self, context: Context, config: AstrBotConfig = None):
@@ -140,12 +140,25 @@ class EmptyAtReply(Star):
         fallback = str(self._cfg("bot_fallback_name", "bot") or "bot").strip()
         return fallback or "bot"
 
+    @staticmethod
+    def _sender_name(event: AstrMessageEvent) -> str:
+        """触发空 @ 的用户昵称，拿不到时退回其 ID。"""
+        name = str(event.get_sender_name() or "").strip()
+        return name or str(event.get_sender_id() or "").strip() or "对方"
+
     def _placeholder(self, event: AstrMessageEvent) -> str:
-        """空 @ 时交给模型的占位文本。"""
+        """空 @ 时交给模型的占位文本。
+
+        placeholder_text 支持两个模板变量（str.replace 替换，其余
+        字符原样保留）：{name}=机器人称呼、{sender}=触发者昵称。
+        不含变量时整段原样使用；留空则自动「@机器人称呼」。
+        """
         text = str(self._cfg("placeholder_text", "") or "").strip()
-        if text:
-            return text
-        return f"@{self._at_name(event)}"
+        if not text:
+            return f"@{self._at_name(event)}"
+        return text.replace("{name}", self._at_name(event)).replace(
+            "{sender}", self._sender_name(event)
+        )
 
     # ------------------------------------------------------------------ 等待
 

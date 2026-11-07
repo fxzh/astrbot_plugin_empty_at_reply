@@ -39,7 +39,7 @@ QQ 官方机器人（`qq_official` 适配器）平台上，空 @ 消息被三层
 | 配置项 | 默认 | 说明 |
 | --- | --- | --- |
 | enabled | true | 总开关 |
-| placeholder_text | 空 | 空 @ 时交给模型的占位文本；留空自动用「@机器人昵称」 |
+| placeholder_text | 空 | 空 @ 时交给模型的占位文本；留空自动用「@机器人昵称」。支持变量：`{name}`=机器人称呼（按消息动态取）、`{sender}`=触发者昵称，如 `@{name}（{sender}仅仅at了你一下）`；不含变量时整段原样使用 |
 | bot_fallback_name | bot | 拿不到机器人昵称时的兜底称呼 |
 | wait_followup | true | 回复后开启等待窗口 |
 | wait_seconds | 60 | 等待窗口时长（秒），1-600 |
